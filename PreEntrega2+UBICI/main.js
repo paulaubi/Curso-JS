@@ -8,7 +8,7 @@ function saludar() {
 saludar()
 
 class Libro{
-    constructor(titulo, autor, precio, lista){
+    constructor(titulo, autor, precio){
       this.titulo = titulo;
       this.autor = autor;
       this.precio = precio
@@ -17,7 +17,7 @@ class Libro{
   
   }
 
-  const Libros = [
+  const libros = [
 
     {
      id: 1, 
@@ -67,8 +67,10 @@ class Libro{
 
 let busqueda = prompt("Ingresa título del libro que estás buscando.");
 
-const encontrado = Libros.find((item) => item.titulo.includes(busqueda));
+const encontrado = libros.find((item) => item.titulo.includes(busqueda))
 console.log(encontrado)
+
+if(encontrado){
 
        let mensaje = `
        ¡Libro encontrado! :)
@@ -80,22 +82,23 @@ console.log(encontrado)
        `;
 
        alert(mensaje);
-      
 
-let suscripcion = prompt("¿Te gustaría asociarte a nuestro club? Accederás a un 20% de descuento en tus compras. S/N").toUpperCase();
+       let suscripcion = prompt("¿Te gustaría asociarte a nuestro club? Accederás a un 20% de descuento en tus compras. S/N").toUpperCase();
 
 function descuento(encontrado){
   if(suscripcion === "S"){
-    let PrecioConDesc = encontrado.precio - encontrado.precio * 0.20 
+    let descuento = encontrado.precio - encontrado.precio * 0.20 
 
 
        return encontrado = {
        id: encontrado.id, 
        titulo: encontrado.titulo,
        autor: encontrado.autor,
-       precio: PrecioConDesc
+       precio: descuento
        };
        
+     } else{ 
+      return console.log("Gracias por tu visitar nuestra web.")
      }
   
      
@@ -104,3 +107,11 @@ function descuento(encontrado){
    console.log(descuento(encontrado))
 
    
+      
+      }else{
+        let mensaje = `Libro no encontrado :(`; 
+        alert(mensaje)
+      }
+      
+        
+
