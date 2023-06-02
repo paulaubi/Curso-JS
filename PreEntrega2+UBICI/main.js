@@ -88,6 +88,7 @@ if(encontrado){
 function descuento(encontrado){
   if(suscripcion === "S"){
     let descuento = encontrado.precio - encontrado.precio * 0.20 
+    
 
 
        return encontrado = {
